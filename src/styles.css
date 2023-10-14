@@ -42,14 +42,13 @@ body {
   display: flex;
 }
 
-.ff-rb{font-family: raleway-bold !important}
-.j-c-c{
+.ff-rb {
+  font-family: raleway-bold !important;
+}
+.j-c-c {
   justify-content: center;
 }
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
+
 
 .cursor {
   cursor: pointer;
@@ -223,31 +222,26 @@ img {
   color: #888;
 }
 
-.form input[type="text"],
 .form input[type="email"],
-.form input[type="password"],
-.form input[type="date"],
-.form select,
-.form textarea {
+.form input[type="password"] {
   display: block;
   width: 100%;
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
 }
+.form input[type="email"]:invalid,
+.form input[type="password"]:invalid {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #f70606;
+}
 
 .form input[type="submit"],
 button {
   font: inherit;
-}
-
-.form .social-input {
-  display: flex;
-}
-
-.form .social-input i {
-  padding: 0.5rem;
-  width: 4rem;
 }
 
 .header {

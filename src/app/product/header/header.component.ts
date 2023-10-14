@@ -4,19 +4,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  username!:string|null;
-  constructor(public route:Router  ){}
-  ngOnInit(){
-  this.username  = localStorage.getItem("username");
+  username!: string ;
+
+  constructor(public route: Router) {}
+
+  getUsername() {
+    this.username = localStorage.getItem('username') || "";
+    this.username =  this.username?.slice(0,this.username.indexOf('@'));
   }
 
-  ngDoCheck(){
-    this.username  = localStorage.getItem("username");
+  ngDoCheck() {
+    this.getUsername();
   }
-  gotoProductList(){
-    this.route.navigate(['/product'])
+
+  gotoProductList() {
+    this.route.navigate(['/product']);
   }
 }
