@@ -1,0 +1,21 @@
+<div class="product-category">
+
+    <span>{{productDetail?.category |uppercase}}</span>
+</div>
+
+<div class="d-flex contain">
+
+<div class="column">
+    <div style="    height: 60vh;   overflow: hidden;">
+    <img [src]="productDetail?.image"  alt="Product Poster" class="img-width" />
+    </div>
+</div>
+<div class="column1">
+    <h1 class="large header">{{productDetail?.title}}</h1>
+    <div class="price">{{productDetail?.price | currency:'USD'}}</div>
+    <div class="description">{{productDetail?.description}}</div>
+</div>
+</div>
+<div  class="product-category">
+    <button class="back-btn" (click)="gotoProductList()">Back To Product List</button>
+ </div>

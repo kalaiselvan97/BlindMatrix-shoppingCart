@@ -1,0 +1,27 @@
+<app-list
+  *ngIf="selectedItem.length > 0"
+  [selectedItem]="selectedItem"
+></app-list>
+
+<div class="list-container">
+  <div class="card" *ngFor="let row of productList">
+    <div class="cursor height2" (click)="viewItem(row.id)">
+      <img
+        [src]="row.image"
+        class="card-img-top"
+        alt="Movie Poster"
+        height="75%"
+      />
+      <div>
+        <span class="product-Title">{{ row.title | slice : 0 : 18 }}</span>
+      </div>
+    </div>
+    <div>
+      <span class="product-Title">{{ row.price | currency : "USD" }} </span>
+      <div>
+        <button class="cart-btn" (click)="addToCart(row)">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,51 @@
+<div class="head">Cart Added List</div>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th style="width: 10%">Sl. No.</th>
+        <th style="width: 60%">Product Name</th>
+        <th style="width: 10%">Count</th>
+        <th style="width: 10%">Price</th>
+        <th style="width: 10%">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="ff-rb" *ngFor="let row of selectedItem; index as i">
+        <td style="width: 10%">{{ i + 1 }}</td>
+        <td style="width: 60%">{{ row.title }}</td>
+
+        <td style="width: 10%" class="ff-rb">
+          <button
+            class="btton"
+            [disabled]="row.count == 1"
+            (click)="countDec(row)"
+          >
+            -
+          </button>
+          {{ row.count }}
+          <button
+            class="btton"
+            [disabled]="row.count > 9"
+            (click)="countInc(row)"
+          >
+            +
+          </button>
+        </td>
+        <td style="width: 10%" class="ff-rb">
+          {{ row.price * row.count | currency : "USD" }}
+        </td>
+        <th style="width: 10%">
+          <button class="rm-btton" (click)="remove(row, i)">remove</button>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex total-amount ff-rb">
+    <div style="width: 80%;color: #7400b8;">Total Amount</div>
+    <div style="width: 20% ;color: #02c39a;">
+      {{ totalAmount | number | currency : "USD" }}
+    </div>
+  </div>
+</div>
